@@ -2,7 +2,6 @@ package algorithm.kotlin
 
 import java.util.*
 
-// 백준 1918
 fun boj1918() {
     System.`in`.bufferedReader().use { br ->
         val infixNotation = br.readLine()
@@ -52,45 +51,56 @@ fun infixToPostfix(infixNotation: String): String {
     return postfixNotation.toString()
 }
 
-fun operatePostfix() {
+fun boj1935() {
     System.`in`.bufferedReader().use { br ->
         val n = br.readLine().toInt()
-        val postfix = br.readLine()
-        val value: MutableMap<Char, Int> = mutableMapOf()
-        val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        val postfixNotation = br.readLine()
+        val intList = mutableListOf<Int>()
         for (i in 0 until n) {
-            value[alphabet[i]] = br.readLine().toInt()
+            intList.add(br.readLine().toInt())
         }
 
-        val operand = Stack<Double>()
-        for (x in postfix) {
-            when (x) {
-                '+' -> {
-                    val tempB = operand.pop()
-                    val tempA = operand.pop()
-                    operand.push(tempA+tempB)
-                }
-                '-' -> {
-                    val tempB = operand.pop()
-                    val tempA = operand.pop()
-                    operand.push(tempA-tempB)
-                }
-                '*' -> {
-                    val tempB = operand.pop()
-                    val tempA = operand.pop()
-                    operand.push(tempA*tempB)
-                }
-                '/' -> {
-                    val tempB = operand.pop()
-                    val tempA = operand.pop()
-                    operand.push(tempA/tempB)
-                }
-                else -> {
-                    operand.push(value[x]!!.toDouble())
-                }
+        val answer = operatePostfix(postfixNotation, intList)
+        println(answer)
+    }
+}
+
+fun operatePostfix(postfixNotation: String, numbers: List<Int>): String {
+    val value: MutableMap<Char, Int> = mutableMapOf()
+    val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    for (i in numbers.indices) {
+        value[alphabet[i]] = numbers[i]
+    }
+
+    val operand = Stack<Double>()
+    for (x in postfixNotation) {
+        when (x) {
+            '+' -> {
+                val tempB = operand.pop()
+                val tempA = operand.pop()
+                operand.push(tempA+tempB)
+            }
+            '-' -> {
+                val tempB = operand.pop()
+                val tempA = operand.pop()
+                operand.push(tempA-tempB)
+            }
+            '*' -> {
+                val tempB = operand.pop()
+                val tempA = operand.pop()
+                operand.push(tempA*tempB)
+            }
+            '/' -> {
+                val tempB = operand.pop()
+                val tempA = operand.pop()
+                operand.push(tempA/tempB)
+            }
+            else -> {
+                operand.push(value[x]!!.toDouble())
             }
         }
-
-        println("${String.format("%.2f", operand.pop())}")
     }
+
+    return String.format("%.2f", operand.pop())
 }
