@@ -1,4 +1,4 @@
-package algorithm.kotlin
+package algorithm.stack
 
 import java.util.*
 

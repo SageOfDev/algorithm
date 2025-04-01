@@ -1,8 +1,5 @@
-package algorithm.kotlin.stack
+package algorithm.stack
 
-import algorithm.kotlin.boj1935
-import algorithm.kotlin.infixToPostfix
-import algorithm.kotlin.operatePostfix
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
