@@ -1,5 +1,8 @@
 package algorithm.divideandconcquer
 
+/*
+* a.pow(b) % c
+* */
 fun boj1629() {
     System.`in`.bufferedReader().use() { br ->
         val (a, b, c) = br.readLine().split(' ').map { it.toLong() }
