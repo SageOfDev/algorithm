@@ -7,8 +7,8 @@ package algorithm.backtracking
  *
  * greedy 로 풀면 a:5, b:3, c:3 을 풀지 못함. aabaabab 에서 실패. 백트래킹이 있으면 aabaabab 가 틀리고 aabaabac 로 넘어감
  */
-fun generateHighestString(a: Int, b: Int, c: Int): String {
-    val result = dfs(a, b, c, StringBuilder())
+fun solution(A: Int, B: Int, C: Int): String {
+    val result = dfs(A, B, C, StringBuilder())
     return result ?: ""
 }
 
