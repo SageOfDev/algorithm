@@ -2,7 +2,7 @@ package algorithm.divideandconcquer.binarysearch
 
 
 
-fun main() = java.io.StreamTokenizer(System.`in`.bufferedReader()).run {
+fun boj2805() = java.io.StreamTokenizer(System.`in`.bufferedReader()).run {
     fun i(): Int {
         nextToken()
         return nval.toInt()
