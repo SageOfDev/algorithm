@@ -1,6 +1,6 @@
 package algorithm.stack
 
-fun main() = java.io.StreamTokenizer(System.`in`.bufferedReader()).run {
+fun boj1725() = java.io.StreamTokenizer(System.`in`.bufferedReader()).run {
     fun i(): Double {
         nextToken()
         return nval
